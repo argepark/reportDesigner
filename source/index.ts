@@ -5,10 +5,26 @@ webix.protoUI({
         config.isolate = true;
         config.cols = [
             {
+                width: 300,
                 header: "Controls",
                 body: {
                     view: "list", drag: "source",
-                    id: "controlsList"
+                    id: "controlsList", select: true,
+                    data: [
+                        "Text",
+                        "Table",
+                        "Barcode"
+                    ],
+                    on: {
+                        onBeforeDrag(context: any) {
+                            if (context.from === this) {
+                                this.select(context.start);
+                            }
+                        },
+                        onAfterDrop(context: any) {
+                            console.log(context);
+                        }
+                    }
                 }
             },
             { view: "resizer" },
@@ -24,10 +40,17 @@ webix.protoUI({
                                     {
                                         header: "Report Header",
                                         body: {
-                                            template() {
+                                            template(obj: any, tmp: webix.ui.template) {
+                                                webix.DragControl.addDrop(tmp.$view, {
+                                                    $drop(source: any, target: any) {
+                                                        var dnd = webix.DragControl.getContext();
+                                                        console.log(dnd);
+                                                    }
+                                                }, false);
                                                 return "";
                                             }
-                                        }
+                                        },
+                                        height: 200
                                     },
                                     { view: "resizer" },
                                     {
@@ -36,7 +59,8 @@ webix.protoUI({
                                             template() {
                                                 return "";
                                             }
-                                        }
+                                        },
+                                        height: 200
                                     },
                                     { view: "resizer" },
                                     {
@@ -45,7 +69,8 @@ webix.protoUI({
                                             template() {
                                                 return "";
                                             }
-                                        }
+                                        },
+                                        height: 200
                                     },
                                     { view: "resizer" },
                                     {}
@@ -63,4 +88,9 @@ webix.protoUI({
             }
         ]
     }
-}, webix.ui.layout, webix.AtomDataLoader)
+}, webix.ui.headerlayout)
+webix.ready(() => {
+    webix.ui({
+        view: "reportDesigner"
+    })
+})
