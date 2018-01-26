@@ -39,9 +39,9 @@ webix.protoUI({
                                         body: {
                                             template(obj: any, tmp: webix.ui.template) {
                                                 webix.DragControl.addDrop(tmp.$view, {
-                                                    $drop(source: any, target: any) {
+                                                    $drop(source: any, target: any, e: Event) {
                                                         var dnd = webix.DragControl.getContext();
-                                                        console.log(dnd);
+                                                        console.log(e);
                                                     }
                                                 }, false);
                                                 return "";
@@ -49,17 +49,13 @@ webix.protoUI({
                                         },
                                         height: 200
                                     },
-                                    { view: "resizer" },
                                     {
                                         header: "Report Body",
                                         body: {
-                                            template() {
-                                                return "";
-                                            }
+                                            view: "reportDesignPanel"
                                         },
-                                        height: 200
+                                        minHeight: 200, maxHeight: 200
                                     },
-                                    { view: "resizer" },
                                     {
                                         header: "Report Footer",
                                         body: {
@@ -69,7 +65,6 @@ webix.protoUI({
                                         },
                                         height: 200
                                     },
-                                    { view: "resizer" },
                                     {}
                                 ]
                             }
