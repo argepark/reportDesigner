@@ -6,4 +6,42 @@
     box-sizing: border-box;
     border-left: 1px solid #555555;
     border-right: 1px solid #555555;
+    overflow: visible;
 }
+
+.webix_reportitem {
+    position: absolute;
+}
+
+.selected::before {
+    position: absolute;
+    border: 1px dotted black;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    content: "";
+}
+
+
+/* .webix_reportitem.selected::before,
+.webix_reportitem.selected::after {
+    border: 1px solid black;
+    height: 2px;
+    width: 2px;
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+.webix_reportitem.selected::before {
+    margin-left: -5px;
+    margin-top: -5px;
+}
+
+.webix_reportitem.selected::after {
+    bottom: 0;
+    right: 0;
+    margin-right: -5px;
+    margin-bottom: -5px;
+} */
