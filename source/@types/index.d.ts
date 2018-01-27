@@ -7,7 +7,7 @@ declare namespace webix {
             config: reportDesignerConfig;
         }
         interface reportDesignPanelConfig extends spacerConfig {
-
+            panelWidth: number
         }
         interface reportDesignPanel extends spacer {
             config: reportDesignPanelConfig

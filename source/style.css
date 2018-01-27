@@ -1,11 +1,9 @@
 .webix_reportdesignpanel {
-    position: relative;
-}
-
-.webix_reportdesignpanel canvas {
-    position: absolute;
     top: 0;
-    bottom: 0;
+    height: 100%;
     left: 50%;
-    margin-left: -50%;
+    position: relative;
+    box-sizing: border-box;
+    border-left: 1px solid #555555;
+    border-right: 1px solid #555555;
 }

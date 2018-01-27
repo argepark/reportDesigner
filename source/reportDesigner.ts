@@ -52,9 +52,9 @@ webix.protoUI({
                                     {
                                         header: "Report Body",
                                         body: {
-                                            view: "reportDesignPanel"
-                                        },
-                                        minHeight: 200, maxHeight: 200
+                                            view: "reportDesignPanel",
+                                            height: 200, panelWidth: 500
+                                        }
                                     },
                                     {
                                         header: "Report Footer",
