@@ -1,7 +1,7 @@
 .webix_reportdesignpanel {
     top: 0;
     height: 100%;
-    left: 50%;
+    margin: auto;
     position: relative;
     box-sizing: border-box;
     border-left: 1px solid #555555;
@@ -13,7 +13,7 @@
     position: absolute;
 }
 
-.selected::before {
+.webix_reportitem.webix_selected::before {
     position: absolute;
     border: 1px dotted black;
     top: -3px;

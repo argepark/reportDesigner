@@ -4,10 +4,10 @@ webix.protoUI({
         const that = this as webix.ui.reportDesignPanel;
         (that as any).$ready.push(() => {
             const panel = document.createElement("div");
-            const panelWidth = config.panelWidth || 0;
             panel.className = "webix_reportdesignpanel"
-            panel.style.width = panelWidth ? (panelWidth + "px") : "100%";
-            panel.style.marginLeft = panelWidth ? (-panelWidth / 2 + "px") : null;
+            if (config.panelWidth) {
+                panel.style.width = config.panelWidth;
+            }
             that.$view.appendChild(panel);
             webix.DragControl.addDrop(panel, {
                 $drop(source: any, target: any, e: MouseEvent) {
@@ -17,7 +17,7 @@ webix.protoUI({
                     console.log(e);
                     console.log(off);
                     const el = document.createElement("div");
-                    el.className = "webix_reportitem selected";
+                    el.className = "webix_reportitem webix_selected";
                     el.style.position = "absolute";
                     el.style.width = "150px";
                     el.style.height = "25px";
@@ -30,4 +30,4 @@ webix.protoUI({
             }, false);
         });
     }
-}, webix.ui.spacer)
+}, webix.ui.view)

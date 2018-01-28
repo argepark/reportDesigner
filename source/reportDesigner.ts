@@ -53,7 +53,7 @@ webix.protoUI({
                                         header: "Report Body",
                                         body: {
                                             view: "reportDesignPanel",
-                                            height: 200, panelWidth: 500
+                                            height: 200, panelWidth: "200pc"
                                         }
                                     },
                                     {
