@@ -6,23 +6,33 @@ webix.protoUI({
         config.cols = [
             {
                 width: 300,
-                header: "Controls",
-                body: {
-                    view: "list", drag: "source",
-                    id: "controlsList", select: true,
-                    data: [
-                        "Text",
-                        "Table",
-                        "Barcode"
-                    ],
-                    on: {
-                        onBeforeDrag(context: any) {
-                            if (context.from === this) {
-                                this.select(context.start);
+                rows: [
+                    {
+                        header: "Controls",
+                        body: {
+                            view: "list", drag: "source",
+                            id: "controlsList", select: true,
+                            data: [
+                                "Text",
+                                "Table",
+                                "Barcode"
+                            ],
+                            on: {
+                                onBeforeDrag(context: any) {
+                                    if (context.from === this) {
+                                        this.select(context.start);
+                                    }
+                                }
                             }
                         }
+                    },
+                    {
+                        header: "Properties",
+                        body: {
+                            view: "property"
+                        }
                     }
-                }
+                ]
             },
             { view: "resizer" },
             {
@@ -53,7 +63,7 @@ webix.protoUI({
                                         header: "Report Body",
                                         body: {
                                             view: "reportDesignPanel",
-                                            height: 200, panelWidth: "200pc"
+                                            height: 200, panelWidth: "30pc"
                                         }
                                     },
                                     {
@@ -80,4 +90,4 @@ webix.protoUI({
             }
         ]
     }
-}, webix.ui.headerlayout)
+}, webix.ui.layout)
