@@ -23,6 +23,18 @@
     content: "";
 }
 
+.fa-preview::before {
+    content: "\f002";
+    position: absolute;
+    font-size: small;
+    left: 40%;
+    top: 30%;
+}
+
+.fa-preview::after {
+    content: "\f02f";
+}
+
 
 /* .webix_reportitem.selected::before,
 .webix_reportitem.selected::after {
