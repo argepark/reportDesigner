@@ -1,6 +1,7 @@
 webix.protoUI({
     name: "reportDesigner",
     $init(config: webix.ui.reportDesignerConfig) {
+        config.type = "line";
         config.rows = [
             {
                 view: "toolbar",
@@ -15,11 +16,11 @@ webix.protoUI({
                         view: "icon", icon: "floppy-o"
                     },
                     {
-                        view: "counter", min: 50, max: 200, step: 5,
-                        value: 100, labelWidth: 100, width: 200, label: "Zoom"
+                        view: "icon", icon: "eye"
                     },
                     {
-                        view: "icon", icon: "eye"
+                        view: "counter", min: 50, max: 200, step: 5,
+                        value: 100, attributes: { readonly: "readonly" }
                     },
                     {}
                 ]
@@ -27,7 +28,7 @@ webix.protoUI({
             {
                 cols: [
                     {
-                        width: 300,
+                        width: 300, type: "line",
                         rows: [
                             {
                                 header: "Controls",
@@ -63,6 +64,7 @@ webix.protoUI({
                             {
                                 view: "scrollview",
                                 body: {
+                                    type: "line",
                                     rows: [
                                         {
                                             header: "Report Header",
